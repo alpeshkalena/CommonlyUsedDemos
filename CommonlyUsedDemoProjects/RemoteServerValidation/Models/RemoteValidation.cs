@@ -17,5 +17,11 @@ namespace RemoteServerValidation.Models
         public string FirstName { get; set; }
         [Required(ErrorMessage = "Last is required")]
         public string LastName { get; set; }
+
+        //For Phone number validation we need only regex on model
+
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Invalid phone number")]
+        public string PhoneNumber { get; set; }
     }
 }
